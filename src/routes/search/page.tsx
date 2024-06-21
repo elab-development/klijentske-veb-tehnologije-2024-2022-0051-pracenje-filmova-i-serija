@@ -13,7 +13,7 @@ const SearchPage = () => {
   const [searchParams] = useSearchParams()
   const tmdb = useTMDB()
   const query = searchParams.get("s") || ""
-  useSetPageTitle(`Search - ${query}`)
+  useSetPageTitle(query ? `Search - ${query}` : undefined)
   const { data, isError, error, isLoading, isSuccess } = useQuery({
     queryKey: ["search", query],
     queryFn: () => tmdb.search.multi({ query }),
