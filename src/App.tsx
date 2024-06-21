@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Layout from "./components/layout/layout"
 import ErrorRoute from "./routes/error"
 import NotFound from "./routes/not-found"
+import SearchPage from "./routes/search/page"
 const Home = lazy(() => import("@/routes/home/page"))
 
 const queryClient = new QueryClient()
@@ -30,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+      {
+        path: "/search",
+        element: (
+          <Suspense fallback={null}>
+            <SearchPage />
+          </Suspense>
+        ),
       },
     ],
   },
