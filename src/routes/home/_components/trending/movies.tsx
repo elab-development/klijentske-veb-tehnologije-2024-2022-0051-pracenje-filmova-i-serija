@@ -4,6 +4,7 @@ import TMDBImage from "@/components/tmdb-image"
 import { Button } from "@/components/ui/button"
 import SectionTitle from "@/components/ui/section-title"
 import { Separator } from "@/components/ui/separator"
+import WatchListButton from "@/components/watchlist-button"
 import { useGetGenreById } from "@/hooks/use-genres"
 import { useTMDB } from "@/hooks/use-tmdb"
 import { AppError } from "@/lib/models/app-error"
@@ -63,17 +64,12 @@ const TrendingMovies = () => {
             </div>
           </div>
           <div className="mt-1 flex gap-1">
-            <Button
-              aria-label="Learn more"
-              variant="secondary"
-              size="sm"
-              className="flex-1 border border-secondary lg:py-8"
-              asChild
-            >
-              <Link to={`/movie/id/${data.results[0].id}`}>
-                <ExternalLink height={"1em"} className="text-lg" />
-              </Link>
-            </Button>
+            <WatchListButton
+              size={"sm"}
+              className="flex-1 text-lg lg:py-8"
+              mediaType={"movie"}
+              mediaId={data.results[0].id}
+            />
             <Button
               aria-label="Learn more"
               variant="secondary"

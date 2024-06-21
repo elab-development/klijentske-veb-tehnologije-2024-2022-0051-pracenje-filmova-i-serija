@@ -1,9 +1,9 @@
 import TMDBImage from "@/components/tmdb-image"
-import { Button } from "@/components/ui/button"
 import GenreBadge from "@/components/ui/genre-badge"
+import WatchListButton from "@/components/watchlist-button"
 import { useGetGenreById } from "@/hooks/use-genres"
 import { cn } from "@/lib/utils"
-import { HeartIcon, StarIcon } from "lucide-react"
+import { StarIcon } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Movie, TV } from "tmdb-ts"
 
@@ -89,15 +89,15 @@ const MediaItem = ({
         </div>
       </div>
       <div className="flex">
-        <Button
+        <WatchListButton
           size={"sm"}
           className="flex-1 text-lg"
+          mediaType={mediaType}
+          mediaId={data.id}
           aria-label={`Add ${
             mediaType === "movie" ? data.title : data.name
           } to watchlist`}
-        >
-          <HeartIcon height={"1em"} />
-        </Button>
+        />
       </div>
     </div>
   )
