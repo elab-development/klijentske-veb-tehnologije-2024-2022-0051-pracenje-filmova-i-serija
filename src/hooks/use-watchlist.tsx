@@ -9,15 +9,6 @@ import {
 export type WatchListItem = { mediaType: "movie" | "tv"; id: number }
 export type WatchList = Array<WatchListItem>
 
-export class WatchListItemClass {
-  mediaType: "movie" | "tv"
-  id: number
-  constructor(mediaType: "movie" | "tv", id: number) {
-    this.mediaType = mediaType
-    this.id = id
-  }
-}
-
 export const useWatchList = () => {
   //getting watchlist from local storage with react query
   const query = useQuery({
