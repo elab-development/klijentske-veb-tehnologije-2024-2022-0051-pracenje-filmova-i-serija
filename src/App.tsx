@@ -7,8 +7,10 @@ import Layout from "./components/layout/layout"
 import ErrorRoute from "./routes/error"
 import NotFound from "./routes/not-found"
 import SearchPage from "./routes/search/page"
+import TVSingle from "./routes/tv/id/[id]/page"
 const Home = lazy(() => import("@/routes/home/page"))
 const WatchlistPage = lazy(() => import("@/routes/watchlist/page"))
+const MovieSingle = lazy(() => import("@/routes/movie/id/[id]/page"))
 
 const queryClient = new QueryClient()
 
@@ -46,6 +48,22 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={null}>
             <WatchlistPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/movie/id/:id",
+        element: (
+          <Suspense fallback={null}>
+            <MovieSingle />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/tv/id/:id",
+        element: (
+          <Suspense fallback={null}>
+            <TVSingle />
           </Suspense>
         ),
       },
