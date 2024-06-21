@@ -12,6 +12,7 @@ const Home = lazy(() => import("@/routes/home/page"))
 const WatchlistPage = lazy(() => import("@/routes/watchlist/page"))
 const MovieSingle = lazy(() => import("@/routes/movie/id/[id]/page"))
 const GenreMovies = lazy(() => import("@/routes/genre/movies/[id]/page"))
+const GenreTv = lazy(() => import("@/routes/genre/tv/[id]/page"))
 
 const queryClient = new QueryClient()
 
@@ -70,7 +71,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/genre/tv/:id",
-        element: <Suspense fallback={null}>{/* <GenreTv /> */}</Suspense>,
+        element: (
+          <Suspense fallback={null}>
+            <GenreTv />
+          </Suspense>
+        ),
       },
       {
         path: "/genre/movies/:id",
