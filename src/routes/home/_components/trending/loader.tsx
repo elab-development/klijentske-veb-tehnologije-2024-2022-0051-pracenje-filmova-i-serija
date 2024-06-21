@@ -1,4 +1,5 @@
 import MediaCarousel from "@/components/media-carousel"
+import MediaItemLoader from "@/components/media-item-loader"
 import { Button } from "@/components/ui/button"
 import SectionTitle from "@/components/ui/section-title"
 import { Separator } from "@/components/ui/separator"
@@ -26,7 +27,7 @@ const TrendingLoader = () => {
       <MediaCarousel>
         {Array.from({ length: 5 }).map((_, i) => (
           // placeholder for MediaItem
-          <div key={i} className="h-72 w-48 animate-pulse bg-muted"></div>
+          <MediaItemLoader key={i} />
         ))}
       </MediaCarousel>
     </div>

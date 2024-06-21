@@ -37,7 +37,7 @@ const MediaItem = ({
       {...props}
     >
       <div className="space-y-4">
-        <div className="group relative aspect-[2/3] w-full">
+        <div className="group relative w-full">
           <TMDBImage
             src={data.poster_path}
             tmdbSize="poster"
