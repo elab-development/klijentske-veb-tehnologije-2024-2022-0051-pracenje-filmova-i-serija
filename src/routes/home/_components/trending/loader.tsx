@@ -13,7 +13,7 @@ const TrendingLoader = () => {
           <Button
             size={"sm"}
             variant={"secondary"}
-            className="pointer-events-none flex-1 text-lg lg:py-8"
+            className="pointer-events-none flex-1 border border-secondary text-lg lg:py-8"
           />
           <Button
             size="sm"
