@@ -1,30 +1,67 @@
-# React + TypeScript + Vite
+# Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Movie App je web aplikacija za pracenje filmova i serija koristeci
+[TMDB](https://www.themoviedb.org) API za podatke.
 
-Currently, two official plugins are available:
+Aplikacija sadrzi posebne stranice za zanrove filmova/serija, za odredjene predefinisane filtere poput "Upcoming movies", kao i posebne Discover stranice za filmove i serije na kojima se pretrazuje preko filtera.
+U slucaju da korisnik vec zna koje podatke zeli da vidi, moze da search-uje pomocu search bar-a na navigacionoj traci.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Podacima svakog filma ili serije se moze pristupiti klikom na naslov ili poster.
 
-## Expanding the ESLint configuration
+Korisnici su u mogucnosti da sacuvaju filmove i serije u svoj watchlist i da posle taj watchlist dele sa svojim prijateljima ili obrnuto, da importuju watchlist od svojih prijatelja.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Pokretanje dev servera na lokalnoj masini
 
-- Configure the top-level `parserOptions` property like this:
+Prvi korak je kloniranje projekta
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/elab-development/klijentske-veb-tehnologije-2024-2022-0051-pracenje-filmova-i-serija.git movie-app
+
+cd movie-app
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Nakon toga, potrebno je instalirati dependency-je uz pomoc nekog package managera.
+
+```bash
+pnpm i
+```
+
+```bash
+# Obavezno koristiti --force flag zbog @testing-library/react-hooks, posto koristimo verziju React-a noviju od 17.0.0
+npm i --force
+```
+
+Onda, napraviti fajl `.env` i u njega upisati API key sa [TMDB-a](https://www.themoviedb.org)
+
+```shell
+# .env
+VITE_TMDB_API_KEY=tmdb_api_key
+```
+
+Pokretanje dev servera se vrsi sledecom komandom
+
+```bash
+pnpm dev
+```
+
+## Build-ovanje aplikacije
+
+Pre svega treba dodati `.env` fajl kao i za dev server, a nakon toga pokrenuti komandu
+
+```bash
+pnpm build
+```
+
+Build output ce biti u `dist` folderu. Serve-ovanje output-a se moze postici uz pomoc sledece komande
+
+```bash
+pnpm preview
+```
+
+Ukoliko nas zanimaju svi paketi korisceni u aplikaciji, mozemo otvoriti `stats.html` u kom se nalaze razni podaci o bundle size-u uz pomoc paketa `rollup-plugin-visualizer`.
+
+## Autori
+
+- Aleksa Savic
+- Milos Kostic
+- Nemanja Jovanovic
