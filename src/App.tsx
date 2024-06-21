@@ -4,6 +4,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { Suspense, lazy } from "react"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Layout from "./components/layout/layout"
+import ErrorRoute from "./routes/error"
+import NotFound from "./routes/not-found"
 const Home = lazy(() => import("@/routes/home/page"))
 
 const queryClient = new QueryClient()
@@ -12,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorRoute />,
     children: [
       {
         path: "/",
@@ -23,6 +26,10 @@ const router = createBrowserRouter([
             <Home />
           </Suspense>
         ),
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
