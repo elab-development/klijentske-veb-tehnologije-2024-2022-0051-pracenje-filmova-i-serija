@@ -8,6 +8,7 @@ import ErrorRoute from "./routes/error"
 import NotFound from "./routes/not-found"
 import SearchPage from "./routes/search/page"
 const Home = lazy(() => import("@/routes/home/page"))
+const WatchlistPage = lazy(() => import("@/routes/watchlist/page"))
 
 const queryClient = new QueryClient()
 
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={null}>
             <SearchPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/watchlist",
+        element: (
+          <Suspense fallback={null}>
+            <WatchlistPage />
           </Suspense>
         ),
       },

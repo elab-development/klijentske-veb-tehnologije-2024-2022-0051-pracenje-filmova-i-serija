@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react"
 import { Outlet, ScrollRestoration } from "react-router-dom"
+import { Toaster } from "../ui/toaster"
 import Footer from "./footer"
 import Navbar from "./navbar/navbar"
 import { Sidebar } from "./sidebar"
@@ -19,6 +20,7 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
           <Footer />
         </div>
       </main>
+      <Toaster />
       <ScrollRestoration />
     </div>
   )
