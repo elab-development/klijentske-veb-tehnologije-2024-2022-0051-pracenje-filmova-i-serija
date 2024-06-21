@@ -7,6 +7,7 @@ import Layout from "./components/layout/layout"
 import ErrorRoute from "./routes/error"
 import NotFound from "./routes/not-found"
 import SearchPage from "./routes/search/page"
+import ExploreTvShows from "./routes/tv/[element]/page"
 import TVSingle from "./routes/tv/id/[id]/page"
 const Home = lazy(() => import("@/routes/home/page"))
 const WatchlistPage = lazy(() => import("@/routes/watchlist/page"))
@@ -96,7 +97,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/tv/:element",
-        element: <Suspense fallback={null}>{/* <TVShowsPage /> */}</Suspense>,
+        element: (
+          <Suspense fallback={null}>
+            <ExploreTvShows />
+          </Suspense>
+        ),
       },
     ],
   },
