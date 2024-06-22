@@ -5,12 +5,7 @@ export class AppError implements ErrorResponse {
   readonly status_message: string
   readonly success: boolean
 
-  constructor(
-    // status_code: number = 500,
-    // status_message: string = "Unknown error",
-    // success: boolean = false
-    error: unknown,
-  ) {
+  constructor(error: unknown) {
     let status_code = 500
     let status_message = "Unknown error"
     let success = false
